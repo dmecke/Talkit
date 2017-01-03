@@ -181,6 +181,10 @@ Node styles
 	color: #acf;
 }
 
+.node .label.Call {
+	color: #acf;
+}
+
 .node .label.Choice {
 	color: #dc5;
 }
