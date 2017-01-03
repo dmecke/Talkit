@@ -169,6 +169,7 @@ joint.shapes.dialogue.Branch = joint.shapes.devs.Model.extend({
             type: 'dialogue.Branch',
             inPorts: ['input'],
             outPorts: ['output0'],
+            context: '',
             values: []
         },
         joint.shapes.dialogue.Base.prototype.defaults
@@ -181,6 +182,7 @@ joint.shapes.dialogue.Set = joint.shapes.devs.Model.extend({
             type: 'dialogue.Set',
             inPorts: ['input'],
             outPorts: ['output'],
+            context: '',
             value: ''
         },
         joint.shapes.dialogue.Base.prototype.defaults
@@ -372,6 +374,7 @@ joint.shapes.dialogue.BranchView = joint.shapes.dialogue.BaseView.extend({
 		'<button class="delete">x</button>',
 		'<button class="add">+</button>',
 		'<button class="remove">-</button>',
+		'<input type="text" class="context" placeholder="Context" />',
 		'<input type="text" class="name" placeholder="Variable" />',
 		'<input type="text" value="Default" readonly/>',
 		'</div>'
@@ -380,6 +383,9 @@ joint.shapes.dialogue.BranchView = joint.shapes.dialogue.BaseView.extend({
 	initialize: function()
 	{
 		joint.shapes.dialogue.BaseView.prototype.initialize.apply(this, arguments);
+        this.$box.find('input.context').on('change', _.bind(function(evt) {
+            this.model.set('context', $(evt.target).val());
+        }, this));
 		this.$box.find('.add').on('click', _.bind(this.addPort, this));
 		this.$box.find('.remove').on('click', _.bind(this.removePort, this));
 	},
@@ -455,13 +461,17 @@ joint.shapes.dialogue.SetView = joint.shapes.dialogue.BaseView.extend({
 		'<div class="node">',
 		'<span class="label"></span>',
 		'<button class="delete">x</button>',
-		'<input type="text" class="name" placeholder="Variable" />',
+		'<input type="text" class="context" placeholder="Context" />',
+		'<input type="text" class="name" placeholder="Property" />',
 		'<input type="text" class="value" placeholder="Value" />',
 		'</div>'
 	].join(''),
 
 	initialize: function() {
 		joint.shapes.dialogue.BaseView.prototype.initialize.apply(this, arguments);
+		this.$box.find('input.context').on('change', _.bind(function(evt) {
+			this.model.set('context', $(evt.target).val());
+		}, this));
 		this.$box.find('input.value').on('change', _.bind(function(evt) {
 			this.model.set('value', $(evt.target).val());
 		}, this));
@@ -582,6 +592,7 @@ function gameData() {
                 title: cell1.title
 			};
 			if (node.type == 'Branch') {
+				node.context = cell1.context;
 				node.variable = cell1.name;
 				node.branches = {};
 				for (var j = 0; j < cell1.values.length; j++) {
@@ -589,6 +600,7 @@ function gameData() {
 					node.branches[branch] = null;
 				}
 			} else if (node.type == 'Set') {
+				node.context = cell1.context;
 				node.variable = cell1.name;
 				node.value = cell1.value;
 				node.next = null;
