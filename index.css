@@ -1,8 +1,7 @@
-html, body 
-{
-	padding: 0px;
+html, body {
+	padding: 0;
 	color: #fff;
-	margin: 0px;
+	margin: 0;
 	font-family: sans-serif;
 	font-size: small;
 	background: #7d8ea2; /* Old browsers */
@@ -16,31 +15,26 @@ html, body
 	overflow: hidden;
 }
 
-#container
-{
+#container {
 	overflow: scroll;
 }
 
-#paper
-{
+#paper {
 	position: relative;
 	display: inline-block;
 	background: transparent;
 	background-image: url(images/grid.png);
 }
 
-#paper svg
-{
+#paper svg {
 	background: transparent;
 }
 
-#paper svg .link
-{
+#paper svg .link {
 	z-index: 2;
 }
 
-#menu
-{
+#menu {
 	position: absolute;
 	display: none;
 	width: 40%;
@@ -49,8 +43,7 @@ html, body
 	cursor: pointer;
 }
 
-#menu div
-{
+#menu div {
 	clear: right;
 	padding: 4px;
 	margin-left: 20px;
@@ -58,13 +51,11 @@ html, body
 	border-bottom: 1px solid #ccc;
 }
 
-#menu div:hover
-{
+#menu div:hover {
 	background-color: black;
 }
 
-#flash
-{
+#flash {
 	position: absolute;
 	top: 10px;
 	left: 10px;
@@ -76,52 +67,43 @@ html, body
 /*
 Editor tools
 */
-.marker-target
-{
+.marker-target {
 	fill: #fff;
 	stroke-width: 0;
 }
 
-.marker-vertex
-{
+.marker-vertex {
    fill: #fff;
 }
 
-.marker-vertex:hover
-{
+.marker-vertex:hover {
    fill: #000;
    stroke: none;
 }
 
-.marker-arrowhead
-{
+.marker-arrowhead {
    fill: #fff;
    stroke: none;
 }
 
-.marker-arrowhead:hover
-{
+.marker-arrowhead:hover {
    fill: #000;
 }
 
-.link-tools .tool-remove circle
-{
+.link-tools .tool-remove circle {
    fill: #c0392b;
 }
 
-.connection
-{
+.connection {
 	stroke: #fff;
 }
 
-.inPorts circle
-{
+.inPorts circle {
 	fill: #c0392b;
 	stroke-width: 0;
 }
 
-.outPorts circle
-{
+.outPorts circle {
 	fill: #8c6;
 	stroke-width: 0;
 }
@@ -129,9 +111,7 @@ Editor tools
 /*
 Node styles
 */
-
-.node
-{
+.node {
 	position: absolute;
 	background: #666;
 	/* Make sure events are propagated to the JointJS element so, e.g. dragging works.*/
@@ -140,10 +120,10 @@ Node styles
 	padding: 8px;
 	box-sizing: border-box;
 	z-index: 2;
+	color: #fff;
 }
 
-.node input[type="text"], button
-{
+.node input[type="text"], button {
 	/* Enable interacting with inputs only. */
 	pointer-events: auto;	
 	border: none;
@@ -153,9 +133,7 @@ Node styles
    
 }
 
-
-.node input[type="actor"]
-{
+.node input[type="actor"] {
 	/* Enable interacting with inputs only. */
 	pointer-events: auto;	
 	border: none;
@@ -169,9 +147,7 @@ Node styles
 
 }
 
-
-.node input[type="choice"]
-{
+.node input[type="choice"] {
 	/* Enable interacting with inputs only. */
 	pointer-events: auto;	
 	border: none;
@@ -185,117 +161,91 @@ Node styles
 
 }
 
-
-.node textarea 
-{
-    	/* Enable interacting with inputs only. */
+.node textarea {
+	/* Enable interacting with inputs only. */
 	pointer-events: auto;	
 	border: none;
 	box-sizing: border-box;
 	background-color: #456;
 	color: #fff;
-    
-
-
 }
-.node .label
-{
+.node .label {
 	color: #ddd;
 }
 
-.node .label.Text
-{
+.node .label.Text {
 	color: #8c6;
 }
 
-.node .label.Set
-{
+.node .label.Set {
 	color: #acf;
 }
 
-.node .label.Choice
-{
+.node .label.Choice {
 	color: #dc5;
 }
 
-.node .label.Branch
-{
+.node .label.Branch {
 	color: #ea6;
 }
 
-button
-{
+button {
 	float: right;
 	border: none;
 	border-radius: 8px;
 	font-weight: bold;
 	width: 16px;
 	height: 16px;
-	line-height: 0px;
-	text-align: middle;
+	line-height: 0;
+	text-align: center;
 	padding: 0;
 	margin: 0;
 	cursor: pointer;
 }
 
-button.delete:hover
-{
+button.delete:hover {
 	background-color: #c0392b;
 }
 
-.node button.add:hover
-{
+.node button.add:hover {
 	background-color: #8c6;
 }
 
-.node button.remove:hover
-{
+.node button.remove:hover {
 	background-color: #dc5;
 }
 
-.node input
-{
+.node input {
 	width: 100%;
 	padding: 4px;
 	margin-top: 2px;
  
 }
 
-
-
-.node
-{
-	color: #fff;
-}
-
 /*
 Context menu
 */
-.b-m-mpanel, #menu, #flash
-{
+.b-m-mpanel, #menu, #flash {
 	background-color: #444;
 	position: absolute;
 	z-index: 99997;
-	-moz-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
-	-webkit-box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
-	box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 16px 0 rgba(0, 0, 0, 0.5);
 }
 
-.b-m-split
-{
-	font-size: 0px;
+.b-m-split {
+	font-size: 0;
 	margin: 2px;
 	border-bottom: 1px solid #777;
 }
 
-.b-m-item, .b-m-ifocus
-{
+.b-m-item, .b-m-ifocus {
     padding: 8px;
     line-height: 100%;
 }
 
-span
-{
+span {
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -303,13 +253,11 @@ span
     cursor: default;
 }
 
-.b-m-ibody
-{
+.b-m-ibody {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
-.b-m-ifocus
-{
+.b-m-ifocus {
     background-color: #000;
 }
